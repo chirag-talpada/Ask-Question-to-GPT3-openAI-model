@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>talk with AI</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+</head>
+<body>
+    <div class="header">
+        <div class="title">
+            Ask a Question?
+        </div>
+        <div class="inputbox">
+            <textarea id="inputText" rows="2" placeholder="Enter any Question to AI?"></textarea>
+        </div>
+        <div class="option">
+            <div class="optioninfo">
+                Select Voice
+            </div>
+            <div class="selectbox">
+                <select id="voicelist"></select>
+            </div>
+        </div>
+        <div class="btnbox">
+            <button id="getAnswer"><span class="btn-text">Get Answer</span></button>
+        </div>
+    </div>    
+
+    <div class="answerpanel">
+        <div class="title">
+            Answer
+        </div>
+        <hr>
+        <p id="answertext"></p>
+    </div>
+    <i class="material-icons mic" id="enableVoice">mic</i>
+    <script src="script.js"></script>
+</body>
+</html>
