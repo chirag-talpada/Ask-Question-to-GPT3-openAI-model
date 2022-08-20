@@ -58,7 +58,7 @@ function getVoicesList(){
 
 
 micBtn.addEventListener('click',()=>{
-    
+
     if(getPermission){
         unClickEffect.play();
         micBtn.classList.remove("active");
@@ -102,7 +102,7 @@ function openai_test() {
     xhr.open("POST", url);
 
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Authorization", "Bearer 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");
+    xhr.setRequestHeader("Authorization", "Bearer [API-KEY]");
 
     xhr.addEventListener('error',()=>{
         alert("something is wrong!")
@@ -112,6 +112,13 @@ function openai_test() {
     if (xhr.readyState === 4) {
         document.getElementById('getAnswer').classList.remove("load");
         const obj=JSON.parse(xhr.responseText);
+
+        if(obj.hasOwnProperty('error')){
+            alert("Invalid input!!!");
+            document.getElementById('answertext').innerText="";
+            question.value="";
+            return
+        }
         const answer=obj.choices[0].text.replace(/\n/g, '');
         document.getElementById('answertext').innerText=answer;
         speakAnswer(answer);
