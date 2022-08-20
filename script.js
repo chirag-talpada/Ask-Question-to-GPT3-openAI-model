@@ -100,38 +100,37 @@ function openai_test() {
 
     var xhr = new XMLHttpRequest();
     xhr.open("POST", url);
-    
+
     xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.setRequestHeader("Authorization", "Bearer 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");
-    
-    xhr.onreadystatechange = function () {
-        if (xhr.readyState === 4) {
-            document.getElementById('getAnswer').classList.remove("load");
-            const obj=JSON.parse(xhr.responseText);
-            const answer=obj.choices[0].text.replace(/\n/g, '');
-            document.querySelector('.answerpanel').style.display="block";
-            document.getElementById('answertext').innerText=answer;
-            speakAnswer(answer);
-        }
-    };
+    xhr.setRequestHeader("Authorization", "Bearer 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");
 
     xhr.addEventListener('error',()=>{
         alert("something is wrong!")
     });
-       
 
-    
+    xhr.onreadystatechange = function () {
+    if (xhr.readyState === 4) {
+        document.getElementById('getAnswer').classList.remove("load");
+        const obj=JSON.parse(xhr.responseText);
+        const answer=obj.choices[0].text.replace(/\n/g, '');
+        document.getElementById('answertext').innerText=answer;
+        speakAnswer(answer);
+    }};
+
     var data = `{
-      "model": "text-davinci-002",
-      "prompt": "${question.value}",
-      "temperature": 0.7,
-      "max_tokens": 256,
-      "top_p": 1,
-      "frequency_penalty": 0,
-      "presence_penalty": 0
+    "model": "text-davinci-002",
+    "prompt": "${question.value}",
+    "temperature": 0.7,
+    "max_tokens": 256,
+    "top_p": 1,
+    "frequency_penalty": 0,
+    "presence_penalty": 0
     }`;
-    
+
     xhr.send(data);
+
+
+
 }
 
 
@@ -147,6 +146,8 @@ answerBtn.addEventListener('click',()=>{
     }
     
 });
+
+
 
 
 

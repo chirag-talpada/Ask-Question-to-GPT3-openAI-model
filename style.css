@@ -26,7 +26,8 @@ body{
     border-radius: 10px;
     padding: 5px 20px 20px;
     width: 513px;
-    display: none;
+    min-height: 200px;
+    /* display: none; */
 }
 
 .answerpanel .title{
